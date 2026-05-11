@@ -474,6 +474,30 @@ export default function MiniGame() {
     setGameState("playing");
   }, [initBackground, syncReactState]);
 
+  const lockOrientation = useCallback(async () => {
+    const screenAny = window.screen as Screen & { orientation?: any };
+    const orientation = screenAny.orientation || (window as any).screen?.orientation;
+    if (orientation && typeof orientation.lock === "function") {
+      try {
+        await orientation.lock("landscape");
+      } catch {
+        // ignore unsupported or rejected orientation lock
+      }
+    }
+  }, []);
+
+  const unlockOrientation = useCallback(async () => {
+    const screenAny = window.screen as Screen & { orientation?: any };
+    const orientation = screenAny.orientation || (window as any).screen?.orientation;
+    if (orientation && typeof orientation.unlock === "function") {
+      try {
+        orientation.unlock();
+      } catch {
+        // ignore unsupported unlock
+      }
+    }
+  }, []);
+
   
   const gameLoop = useCallback(() => {
     const canvas = canvasRef.current;
@@ -833,6 +857,12 @@ export default function MiniGame() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      unlockOrientation();
+    }
+  }, [isOpen, unlockOrientation]);
+
   const handleTouchStart = useCallback(
     (evt: React.TouchEvent) => {
       const touch = evt.touches[0];
@@ -900,6 +930,7 @@ export default function MiniGame() {
           setIsOpen(true);
           setGameState("idle");
           engineRef.current.state = "idle";
+          lockOrientation();
         }}
         className="fixed right-0 top-1/2 -translate-y-1/2 z-[60] bg-black border-2 border-r-0 border-solid border-cyan-900 p-3 shadow-[-4px_4px_0px_rgba(0,0,0,0.5)] group hover:bg-cyan-950/50 hover:border-cyan-400 transition-colors cursor-pointer"
       >
