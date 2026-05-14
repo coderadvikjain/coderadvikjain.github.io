@@ -496,6 +496,69 @@ export default function Home() {
     )
   );
 
+  const kaggleRepos = [
+  {
+    name: "Face Gender & Age Prediction",
+    desc: "Custom CNN from scratch — predicts gender (classification) & age (regression) from face images.",
+    tech: ["PyTorch", "CNN", "Computer Vision"],
+    myScore: 0.75,
+    topScore: 0.85,
+    metric: "Accuracy",
+    github: "https://github.com/coderadvikjain/face-analysis-cnn",
+    color: "purple",
+  },
+  {
+    name: "Hotel Booking Prediction",
+    desc: "End-to-end ML pipeline — EDA, feature engineering, 8 model comparison with GridSearchCV tuning.",
+    tech: ["Scikit-learn", "XGBoost", "Pandas"],
+    myScore: 0.88,
+    topScore: 0.90,
+    metric: "Accuracy",
+    github: "https://github.com/coderadvikjain/hotel-booking-status-prediction",
+    color: "green",
+  },
+  {
+    name: "Sentiment Analysis NLP",
+    desc: "Multi-class sentiment classification using dual TF-IDF (word + char) with Voting Classifier ensemble.",
+    tech: ["TF-IDF", "NLP", "Scikit-learn"],
+    myScore: 0.638,
+    topScore: 0.70,
+    metric: "Accuracy",
+    github: "https://github.com/coderadvikjain/sentiment-analysis-nlp",
+    color: "cyan",
+  },
+  {
+    name: "Comment Category Prediction",
+    desc: "80+ engineered features, dual TF-IDF, chi-squared selection — LinearSVC with class balancing.",
+    tech: ["NLP", "Feature Eng.", "LinearSVC"],
+    myScore: 0.836,
+    topScore: 0.87,
+    metric: "Macro F1",
+    github: "https://github.com/coderadvikjain/comment-category-prediction",
+    color: "rose",
+  },
+  {
+    name: "Protein Structure Prediction",
+    desc: "Bi-RNN, Bi-GRU & CNN-LSTM for Q3/Q8 protein secondary structure — sequence-to-sequence deep learning.",
+    tech: ["PyTorch", "RNN", "LSTM"],
+    myScore: 0.49,
+    topScore: 0.51,
+    metric: "Score",
+    github: "https://github.com/coderadvikjain/protein-structure-prediction",
+    color: "blue",
+  },
+  {
+    name: "Messy Mashup Genre Classifier",
+    desc: "Music genre from noisy mashups — ResNet50 on mel-spectrograms, 10 iterative experiments, heavy TTA.",
+    tech: ["PyTorch", "ResNet50", "Audio ML"],
+    myScore: 0.906,
+    topScore: 0.99,
+    metric: "Macro F1",
+    github: "https://github.com/coderadvikjain/messy-mashup-genre-classification",
+    color: "amber",
+  },
+];
+
   return (
     <main className="relative min-h-screen bg-[#000000] text-zinc-100 overflow-hidden font-mono selection:bg-green-500 selection:text-black">
       {/* THEME */}
@@ -1147,7 +1210,167 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+      
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex items-center gap-3 mt-16 mb-2 border-b border-solid border-zinc-800 pb-4"
+          >
+            <Activity className="text-zinc-500" size={24} />
+            <h3 className="text-xs md:text-sm uppercase tracking-[0.3em] text-zinc-400 font-bold">
+              Kaggle.Notebooks // ML_Models
+            </h3>
+          </motion.div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            {kaggleRepos.map((repo, i) => {
+              const pct = Math.round((repo.myScore / repo.topScore) * 100);
+
+              const colorMap: Record<string, {
+                border: string; text: string; bg: string; bar: string; glow: string;
+              }> = {
+                purple: {
+                  border: "border-purple-900/60 hover:border-purple-500",
+                  text: "text-purple-400",
+                  bg: "bg-purple-950/30",
+                  bar: "bg-purple-500",
+                  glow: "shadow-[0_0_20px_rgba(168,85,247,0.1)]",
+                },
+                green: {
+                  border: "border-green-900/60 hover:border-green-500",
+                  text: "text-green-400",
+                  bg: "bg-green-950/30",
+                  bar: "bg-green-500",
+                  glow: "shadow-[0_0_20px_rgba(34,197,94,0.1)]",
+                },
+                cyan: {
+                  border: "border-cyan-900/60 hover:border-cyan-500",
+                  text: "text-cyan-400",
+                  bg: "bg-cyan-950/30",
+                  bar: "bg-cyan-500",
+                  glow: "shadow-[0_0_20px_rgba(6,182,212,0.1)]",
+                },
+                rose: {
+                  border: "border-rose-900/60 hover:border-rose-500",
+                  text: "text-rose-400",
+                  bg: "bg-rose-950/30",
+                  bar: "bg-rose-500",
+                  glow: "shadow-[0_0_20px_rgba(244,63,94,0.1)]",
+                },
+                blue: {
+                  border: "border-blue-900/60 hover:border-blue-500",
+                  text: "text-blue-400",
+                  bg: "bg-blue-950/30",
+                  bar: "bg-blue-500",
+                  glow: "shadow-[0_0_20px_rgba(59,130,246,0.1)]",
+                },
+                amber: {
+                  border: "border-amber-900/60 hover:border-amber-500",
+                  text: "text-amber-400",
+                  bg: "bg-amber-950/30",
+                  bar: "bg-amber-500",
+                  glow: "shadow-[0_0_20px_rgba(245,158,11,0.1)]",
+                },
+              };
+
+              const c = colorMap[repo.color] || colorMap.green;
+
+              return (
+                <motion.a
+                  key={i}
+                  variants={fadeUp}
+                  href={repo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`group relative bg-[#050505] border border-solid ${c.border} p-5 flex flex-col justify-between transition-all duration-300 cursor-pointer shadow-[4px_4px_0px_rgba(0,0,0,0.5)] hover:${c.glow} overflow-hidden min-h-[260px]`}
+                >
+                  {/* Grid background */}
+                  <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
+
+                  <div className="relative z-10">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className={`text-[9px] ${c.text} font-bold tracking-[0.2em] uppercase ${c.bg} border border-current/20 px-2 py-0.5`}>
+                        // kaggle
+                      </span>
+                      <GithubIcon size={14} className="text-zinc-700 group-hover:text-white transition-colors" />
+                    </div>
+
+                    {/* Title */}
+                    <h4 className="text-sm font-sans font-black uppercase tracking-tight text-white mb-2 leading-tight group-hover:drop-shadow-md transition-all">
+                      {repo.name}
+                    </h4>
+
+                    {/* Description */}
+                    <p className="text-[11px] text-zinc-500 font-mono leading-relaxed mb-4">
+                      {repo.desc}
+                    </p>
+
+                    {/* Tech tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {repo.tech.map((t, j) => (
+                        <span
+                          key={j}
+                          className="text-[9px] font-mono text-zinc-600 border border-zinc-800 px-1.5 py-0.5 uppercase tracking-wider group-hover:text-zinc-400 group-hover:border-zinc-700 transition-colors"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Score bar */}
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-end mb-1.5">
+                      <span className="text-[10px] font-mono font-bold text-zinc-400">
+                        {repo.metric}
+                      </span>
+                      <div className="flex items-center gap-3 text-[10px] font-mono">
+                        <span className={`${c.text} font-bold`}>
+                          Mine: {repo.myScore}
+                        </span>
+                        <span className="text-zinc-600">
+                          Top: {repo.topScore}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Progress bar */}
+                    <div className="w-full h-[6px] bg-zinc-900 border border-zinc-800 relative overflow-hidden">
+                      <div
+                        className={`absolute inset-y-0 left-0 ${c.bar} transition-all duration-700 ease-out`}
+                        style={{ width: `${pct}%` }}
+                      />
+                      {/* Top score marker */}
+                      <div className="absolute inset-y-0 right-0 w-[2px] bg-white/30" />
+                    </div>
+
+                    <div className="flex justify-between mt-1">
+                      <span className="text-[9px] font-mono text-zinc-700">0</span>
+                      <span className={`text-[9px] font-mono ${c.text} font-bold`}>
+                        {pct}% of top
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Bottom accent line */}
+                  <div className={`absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full ${c.bar} transition-all duration-500 ease-out`} />
+                </motion.a>
+              );
+            })}
+          </motion.div>
         </section>
+        
 
         {/* CORRZEN LABS */}
         <section id="labs" className="pt-10">
