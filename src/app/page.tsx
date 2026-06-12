@@ -26,6 +26,8 @@ import {
   Layers,
   Menu,
   X,
+  Music,
+  Bot,
 } from "lucide-react";
 
 import MiniGame from "./minigame";
@@ -1080,6 +1082,167 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
+          {/* Audixa */}
+          <motion.div
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="w-full p-8 md:p-12 bg-black border-2 border-solid border-cyan-900 relative flex flex-col md:flex-row items-center gap-10 shadow-[6px_6px_0px_rgba(0,0,0,0.5)]"
+          >
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="md:w-1/2 relative z-10"
+            >
+              <motion.div
+                variants={fadeUp}
+                className="flex items-center gap-3 mb-4 bg-cyan-950 p-2 border border-solid border-cyan-800 inline-flex"
+              >
+                <Music className="text-cyan-400" size={16} />
+                <span className="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">
+                  Featured.Proj // Music
+                </span>
+              </motion.div>
+              <motion.h2
+                variants={fadeUp}
+                className="text-3xl md:text-4xl font-sans font-black uppercase mb-4 tracking-tight text-white drop-shadow-[2px_2px_0px_#06b6d4]"
+              >
+                Audixa
+              </motion.h2>
+              <motion.p
+                variants={fadeUp}
+                className="text-sm text-zinc-300 leading-relaxed font-mono mb-6 bg-zinc-950/80 p-4 border-l-2 border-cyan-900"
+              >
+                $ Modern music streaming platform powered by Next.js and
+                YouTube Music — AI-curated recommendations, voice controls,
+                ad-free listening.
+              </motion.p>
+              <motion.div variants={fadeUp} className="mb-6">
+                <span className="text-cyan-400 text-[10px] font-bold tracking-[0.2em] border border-cyan-900/50 bg-cyan-950/30 px-3 py-1 uppercase animate-pulse">
+                  [STATUS: ONLINE]
+                </span>
+              </motion.div>
+              <motion.a
+                variants={fadeUp}
+                href="https://audixa-music.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-3 group/btn w-fit bg-cyan-950 p-2.5 px-5 border-2 border-solid border-cyan-800 hover:bg-white hover:text-black hover:border-white transition-colors shadow-[4px_4px_0px_#000]"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest">
+                  Execute Launch
+                </span>
+                <div className="h-6 w-6 border-2 border-solid border-cyan-400 flex items-center justify-center group-hover/btn:border-black transition-colors">
+                  <ArrowUpRight size={14} />
+                </div>
+              </motion.a>
+            </motion.div>
+
+            <motion.div
+              variants={slideLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="w-full md:w-1/2 aspect-video border-2 border-solid border-cyan-950 relative overflow-hidden bg-black group shadow-[8px_8px_0px_rgba(6,182,212,0.15)]"
+            >
+              <img
+                src="/audixa.png"
+                alt="Audixa Preview"
+                className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 ease-out"
+              />
+              <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(6,182,212,0.4)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.4)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+              <div className="absolute inset-0 border-2 border-solid border-transparent group-hover:border-cyan-500/50 transition-colors m-4 pointer-events-none" />
+            </motion.div>
+          </motion.div>
+
+          {/* Auxly */}
+          <motion.div
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="w-full p-8 md:p-12 bg-black border-2 border-solid border-purple-900 relative flex flex-col md:flex-row items-center gap-10 shadow-[6px_6px_0px_rgba(0,0,0,0.5)]"
+          >
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="md:w-1/2 relative z-10"
+            >
+              <motion.div
+                variants={fadeUp}
+                className="flex items-center gap-3 mb-4 bg-purple-950 p-2 border border-solid border-purple-800 inline-flex"
+              >
+                <Bot className="text-purple-400" size={16} />
+                <span className="text-[10px] md:text-xs uppercase tracking-widest text-purple-400 font-bold">
+                  Discord.Bot // Music & Fun
+                </span>
+              </motion.div>
+              <motion.h2
+                variants={fadeUp}
+                className="text-3xl md:text-4xl font-sans font-black uppercase mb-4 tracking-tight text-white drop-shadow-[2px_2px_0px_#a855f7]"
+              >
+                Auxly
+              </motion.h2>
+              <motion.p
+                variants={fadeUp}
+                className="text-sm text-zinc-300 leading-relaxed font-mono mb-6 bg-zinc-950/80 p-4 border-l-2 border-purple-900"
+              >
+                $ A Discord music &amp; fun bot — crystal-clear audio playback,
+                queue management, games, and seamless controls to keep your
+                server grooving and entertained 24/7.
+              </motion.p>
+              <motion.div variants={fadeUp} className="mb-6">
+                <span className="text-purple-400 text-[10px] font-bold tracking-[0.2em] border border-purple-900/50 bg-purple-950/30 px-3 py-1 uppercase animate-pulse">
+                  [STATUS: ONLINE]
+                </span>
+              </motion.div>
+              <motion.a
+                variants={fadeUp}
+                href="https://top.gg/bot/1510901062117359656/vote"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-3 group/btn w-fit bg-purple-950 p-2.5 px-5 border-2 border-solid border-purple-800 hover:bg-white hover:text-black hover:border-white transition-colors shadow-[4px_4px_0px_#000]"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest">
+                  Vote on Top.gg
+                </span>
+                <div className="h-6 w-6 border-2 border-solid border-purple-400 flex items-center justify-center group-hover/btn:border-black transition-colors">
+                  <ArrowUpRight size={14} />
+                </div>
+              </motion.a>
+            </motion.div>
+
+            <motion.div
+              variants={slideLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="w-full md:w-1/2 aspect-video border-2 border-solid border-purple-950 relative overflow-hidden bg-black group shadow-[8px_8px_0px_rgba(168,85,247,0.15)] flex items-center justify-center"
+            >
+              <img
+                src="https://cdn.discordapp.com/banners/1510901062117359656/d14a7d5f3b3bf045d28a806f7b7752f3.webp?size=1024"
+                alt="Auxly Banner"
+                className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-all duration-500 ease-out"
+              />
+              <div className="absolute inset-0 bg-black/30" />
+              <img
+                src="https://images-ext-1.discordapp.net/external/oOcUOxV95ww-Iov3dgp7QlKoZDUiLyBxL5rT9z_TOx0/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1510901062117359656/a_c9f99ca5d1649151598ac840e74facf5.gif?width=281&height=281"
+                alt="Auxly Bot Avatar"
+                className="relative z-10 w-24 h-24 rounded-full object-cover border-4 border-purple-500 shadow-[0_0_40px_rgba(168,85,247,0.6)] group-hover:scale-105 transition-all duration-500 ease-out"
+              />
+              <div className="absolute inset-0 border-2 border-solid border-transparent group-hover:border-purple-500/50 transition-colors m-4 pointer-events-none" />
+            </motion.div>
+          </motion.div>
+
           {/* Music Classifier */}
           <motion.div
             variants={scaleIn}
@@ -1175,14 +1338,7 @@ export default function Home() {
                 status: "UNDER_DEVELOPMENT",
               },
               {
-                color: "green",
-                hex: "#22c55e",
-                name: "Audixa",
-                desc: "Modern music streaming platform powered by Next.js and YouTube Music — AI-curated recommendations, voice controls, ad-free listening.",
-                status: "UNDER_DEVELOPMENT",
-              },
-              {
-                color: "yellow",
+                color: "yellow",  
                 hex: "#eab308",
                 name: "CogniTutor",
                 desc: "Personalized AI learning platform that transforms user goals into structured, engaging, and adaptive learning experiences.",
