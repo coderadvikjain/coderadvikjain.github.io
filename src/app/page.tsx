@@ -1776,18 +1776,18 @@ export default function Home() {
                     / Favorite Movie /
                   </p>
                   <h4 className="text-2xl font-sans font-black uppercase mb-2 tracking-tight drop-shadow-[2px_2px_0px_#a855f7] pointer-events-none">
-                    Hello! Takqeer
+                    Sita Ramam
                   </h4>
                   <ul className="text-zinc-300 text-xs space-y-1.5 font-mono mb-4 pointer-events-none">
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-purple-500" /> Dir: Vikram K. Kumar
+                      <span className="w-1.5 h-1.5 bg-purple-500" /> Dir: Hanu Raghavapudi
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-purple-500" /> Action // Romance
+                      <span className="w-1.5 h-1.5 bg-purple-500" /> Romance // Drama // War
                     </li>
                   </ul>
                   <a
-                    href="https://www.youtube.com/watch?v=6WgnE6J07e8"
+                    href="https://youtu.be/PFcE1Rw5lmo?si=AWyaKHTsdIYffYsn"
                     target="_blank"
                     rel="noopener noreferrer"
                     onPointerDown={(e) => e.stopPropagation()}
