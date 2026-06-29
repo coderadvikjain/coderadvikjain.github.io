@@ -837,6 +837,24 @@ export default function Home() {
               USER PROFILE.exe
             </h2>
 
+            {/* Profile Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-8 flex justify-center"
+            >
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/50 to-cyan-500/50 rounded-md blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <img 
+                  src="/itsme.jpeg" 
+                  alt="Profile"
+                  className="relative w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-solid border-zinc-700 shadow-[6px_6px_0px_#000] hover:border-purple-500 transition-colors duration-300 grayscale group-hover:grayscale-0"
+                />
+              </div>
+            </motion.div>
+
             <div className="border border-zinc-800 shadow-[4px_4px_0px_#000] overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-2 bg-zinc-900/80 border-b border-zinc-800">
                 <span className="w-3 h-3 rounded-full bg-red-500/80" />
